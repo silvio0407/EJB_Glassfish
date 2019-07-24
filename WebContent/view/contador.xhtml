@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Contador de Acesso - Singleton</title>
+</h:head>
+
+<h:body onload="#{contadorMB.incrementar()}">
+	<h:form>
+		<h:outputLabel value="Contador de Acesso utilizando um bean Singleton" />
+		<hr />
+		<h:outputLabel value="Quantidade: " />
+		<h:outputText value="#{contadorMB.contador}" />
+	</h:form>
+</h:body>
+</html>
