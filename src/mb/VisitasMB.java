@@ -1,13 +1,14 @@
 package mb;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import beans.VisitasBean;
 
@@ -19,6 +20,8 @@ public class VisitasMB {
 	VisitasBean visitasBean;
 	
 	private String visitante;
+	
+	private DataModel<String> listaVisitantes;
 	  
     public void entrouVisita() {
     	
@@ -32,8 +35,13 @@ public class VisitasMB {
     	}
     }      
      
-    public List<String> getVisitas(){
-           return new ArrayList<String>(visitasBean.getListaVisitantes());
+    public DataModel<String> getVisitas(){
+    	listaVisitantes = new ListDataModel<String>(new ArrayList<String>(visitasBean.getListaVisitantes()));
+           return listaVisitantes;
+    }
+    
+    public void excluirVisitante() {
+    	visitasBean.excluirVisitante(listaVisitantes.getRowData());
     }
      
     public String getVisitante() {

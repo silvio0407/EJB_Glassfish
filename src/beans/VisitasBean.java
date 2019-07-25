@@ -17,4 +17,8 @@ public class VisitasBean {
 	public void entrouVisita(String visitante) {
 		listaVisitantes.add(visitante);
 	}
+	
+	public void excluirVisitante(String visitante) {
+		listaVisitantes.remove(visitante);
+	}
 }
